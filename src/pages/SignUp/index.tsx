@@ -1,12 +1,12 @@
-import { Container, PageTitle, FormContainer, Button, OrContainer } from "./styles";
+import { Container, PageTitle, FormContainer, Button, OrContainer } from "../Login/styles";
 import Logo from '../../assets/logo.svg?component';
 import { useForm } from "react-hook-form";
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { HookFormInput } from "../../components/HookFormInput";
 import { HiOutlineLockClosed, HiOutlineMail } from 'react-icons/hi';
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   email: string;
@@ -21,7 +21,7 @@ const schema = Yup.object().shape({
   password: Yup.string().required('Password is a required field')
 });
 
-export function Login() {
+export function SignUp() {
   const {
     control,
     handleSubmit,
@@ -30,23 +30,23 @@ export function Login() {
     resolver: yupResolver(schema)
   });
 
-  const { login } = useAuth();
+  const { register } = useAuth();
 
-  async function handleLogin(form: FormData) {
-    await login(form);
+  async function handleSignUp(form: FormData) {
+    await register(form);
   }
 
   const navigate = useNavigate();
 
-  function handleSignUp() {
-    navigate("/signup")
+  function handleLogin() {
+    navigate("/login")
   }
 
   return (
     <Container>
       <Logo />
-      <PageTitle>Login</PageTitle>
-      <FormContainer onSubmit={handleSubmit(handleLogin)}>
+      <PageTitle>Sign Up</PageTitle>
+      <FormContainer onSubmit={handleSubmit(handleSignUp)}>
         <HookFormInput
           icon={<HiOutlineMail />}
           label="Email"
@@ -67,16 +67,18 @@ export function Login() {
         />
 
         <Button type="submit">
+          Sign Up
+        </Button>
+
+        <OrContainer>
+          <div>
+            <p>Or</p>
+          </div>
+        </OrContainer>
+        <Button outlined onClick={handleLogin}>
           Login
         </Button>
       </FormContainer>
-
-      <OrContainer>
-        <div>
-          <p>Or</p>
-        </div>
-      </OrContainer>
-      <Button outlined onClick={handleSignUp}>Sign Up</Button>
     </Container>
   )
 }
