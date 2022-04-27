@@ -1,4 +1,9 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { 
+  createContext, 
+  ReactNode, 
+  useContext, 
+  useState 
+} from "react";
 
 interface LoadingCtxProps {
   children: ReactNode;
@@ -12,7 +17,7 @@ interface LoadingCtxData {
 const LoadingContext = createContext({} as LoadingCtxData);
 
 export function LoadingProvider({ children }: LoadingCtxProps) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   function toggleLoading(val: boolean) {
     setIsLoading(val);

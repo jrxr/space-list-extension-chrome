@@ -1,4 +1,10 @@
-import { Container, PageTitle, FormContainer, Button, OrContainer } from "./styles";
+import { 
+  Container, 
+  PageTitle, 
+  FormContainer, 
+  Button, 
+  OrContainer 
+} from "./styles";
 import Logo from '../../assets/logo.svg?component';
 import { useForm } from "react-hook-form";
 import * as Yup from 'yup';

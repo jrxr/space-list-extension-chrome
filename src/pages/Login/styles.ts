@@ -67,7 +67,6 @@ export const Button = styled.button<ButtonProps>`
 export const OrContainer = styled.section`
   width: 100%;
   margin: 1rem 0;
-
   div {
     width: 100%;
     height: 3px;
@@ -78,7 +77,6 @@ export const OrContainer = styled.section`
     z-index: 1;
     transform: translateY(-50%);
   }
-  
   p {
     font-size: 0.9rem;
     text-transform: uppercase;

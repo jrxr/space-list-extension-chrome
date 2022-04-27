@@ -16,12 +16,7 @@ export function HookFormInput({ id, control, error, ...rest }: Props) {
         control={control}
         defaultValue=""
         render={({ field: { onChange, value } }) => (
-          <Input 
-            {...rest} 
-            onChange={onChange} 
-            value={value} 
-            id={id} 
-          />
+          <Input {...rest} onChange={onChange} value={value} id={id} />
         )}
         name={id}
       />
